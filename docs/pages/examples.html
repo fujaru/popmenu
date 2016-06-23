@@ -189,14 +189,7 @@ $('#MultiToggle').change(function() {
 </p>
 <pre class="code hidden" id="SubCode" data-elm="SubBtn">
 $(elm).popmenu({
-	newItem: {label: 'New', submenu: {
-		newFolder: {label: 'Folder'},
-		newSep: {type: 'separator'},
-		newFile: {label: 'Blank File'},
-		newPng: {label: 'Image File (png)'},
-		newDoc: {label: 'Text Document (doc)'},
-		newXls: {label: 'Spreadsheet (xls)'}
-	}},
+	newItem: {label: 'New'},
 	options: {label: 'Options', submenu: {
 		sort: {label: 'Sort By', submenu: {
 			sortName: {label: 'Name'},
@@ -261,6 +254,17 @@ $(elm).popmenu({
 		idyo: {label: 'Yogyakarta'}
 	}}
 });
+
+// Dynamically creating submenu
+var newSubmenu = new PopMenu({
+    newFolder: {label: 'Folder'},
+    newSep: {type: 'separator'},
+    newFile: {label: 'Blank File'},
+    newPng: {label: 'Image File (png)'},
+    newDoc: {label: 'Text Document (doc)'},
+    newXls: {label: 'Spreadsheet (xls)'}
+});
+$(elm).popmenu().find('newItem').options({ submenu: newSubmenu });
 </pre>
 
 <br /><br />
